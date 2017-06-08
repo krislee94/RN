@@ -8,8 +8,9 @@ import {
 } from 'react-native';
 
 import { StackNavigator } from 'react-navigation';
-//import TabNav from './Component/TabNav';
+import TabNav from './Component/TabNav';
 import Dsome from './Component/Dsome';
+import DrawNav from './Component/DrawNav';
 
 class HomeScreen extends React.Component {
   
@@ -45,8 +46,20 @@ class HomeScreen extends React.Component {
            )}
           title="Dsome"
         />
+       
 
         <Text>我的参数为:{this.state.boom}</Text>
+
+         <Button
+          onPress={() => navigate('TabNav')}
+          title="调到TabBar"
+        />
+
+        <Button
+          onPress={() => navigate('DrawNav')}
+          title="抽屉导航"
+        />
+
       </View>
     );
   }
@@ -69,6 +82,8 @@ const SimpleApp = StackNavigator({
   Home: { screen: HomeScreen },
   Chat: { screen: ChatScreen },
   Dsome:{screen:Dsome},
+  TabNav:{screen:TabNav},
+  DrawNav:{screen:DrawNav}
 });
 
 AppRegistry.registerComponent('Hello', () => SimpleApp);
