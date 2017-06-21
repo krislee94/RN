@@ -11,6 +11,7 @@ import { StackNavigator } from 'react-navigation';
 import TabNav from './Component/TabNav';
 import Dsome from './Component/Dsome';
 import DrawNav from './Component/DrawNav';
+import MobxDemo from './Component/MobxDemo';
 
 class HomeScreen extends React.Component {
   
@@ -60,6 +61,11 @@ class HomeScreen extends React.Component {
           title="抽屉导航"
         />
 
+          <Button
+            onPress={()=>navigate('MobxDemo')}
+            title="Mobx案例(一)"
+          />
+
       </View>
     );
   }
@@ -83,7 +89,8 @@ const SimpleApp = StackNavigator({
   Chat: { screen: ChatScreen },
   Dsome:{screen:Dsome},
   TabNav:{screen:TabNav},
-  DrawNav:{screen:DrawNav}
+  DrawNav:{screen:DrawNav},
+  MobxDemo:{screen:MobxDemo}
 });
 
 AppRegistry.registerComponent('Hello', () => SimpleApp);
