@@ -9,9 +9,7 @@ import {
 
 import { StackNavigator } from 'react-navigation';
 
-
-
-export default class Dsome extends React.Component{
+export default class Profile extends React.Component{
         
      static navigationOptions = {
         
@@ -39,17 +37,24 @@ export default class Dsome extends React.Component{
     render(){      
         const { params } = this.props.navigation.state;
          const {navigate} = this.props.navigation;
+         const {goBack} = this.props.navigation;
         return(
             <View style = {{marginTop:20,backgroundColor:'#f5f5f5',flex:1}}>
-                <Text>this is Dsome</Text>
-                <Text>接受的参数为:{params.boom}</Text>
-
-                <Text onPress={this.goback.bind(this)}>dianji</Text>
-
+               
+                 <Text>this is Profile</Text>
                  <Button
-                     onPress={() => navigate('Profile', {name: 'Brent'})}
-                     title="Go to Brent's profile"
+                     onPress={() => goBack()}
+                     title="Go back from this HomeScreen"
                  />
+                 <Button
+                     onPress={() => goBack(null)}
+                     title="Go back anywhere"
+                 />
+                 <Button
+                     onPress={() => navigate('Home')}
+                     title="返回主页"
+                 />
+
             </View>
         );
     }

@@ -12,6 +12,7 @@ import TabNav from './Component/TabNav';
 import Dsome from './Component/Dsome';
 import DrawNav from './Component/DrawNav';
 import MobxDemo from './Component/MobxDemo';
+import Profile from './Component/Profile';
 
 class HomeScreen extends React.Component {
   
@@ -83,14 +84,17 @@ class ChatScreen extends React.Component {
       </View>
     );
   }
+
 }
+
 const SimpleApp = StackNavigator({
   Home: { screen: HomeScreen },
   Chat: { screen: ChatScreen },
   Dsome:{screen:Dsome},
   TabNav:{screen:TabNav},
   DrawNav:{screen:DrawNav},
-  MobxDemo:{screen:MobxDemo}
+  MobxDemo:{screen:MobxDemo},
+  Profile:{screen:Profile}
 });
 
 AppRegistry.registerComponent('Hello', () => SimpleApp);
