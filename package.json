@@ -14,12 +14,13 @@
     "react": "~15.4.1",
     "react-native": "0.42.0",
     "react-native-button": "^2.0.0",
+    "react-native-image-crop-picker": "^0.14.1",
     "react-native-parallax-view": "^2.0.6",
+    "react-native-root-modal": "^1.1.1",
     "react-native-star-rating": "^1.0.7",
     "react-native-vector-icons": "^4.2.0",
     "react-native-wechat": "^1.9.4",
     "react-navigation": "^1.0.0-beta.11"
-
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

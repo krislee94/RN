@@ -14,6 +14,8 @@ import DrawNav from './Component/DrawNav';
 import MobxDemo from './Component/MobxDemo';
 import Profile from './Component/Profile';
 import WeChatDemo from './Component/WeChatDemo';
+import CameraDemo from './Component/CameraDemo';
+
 class HomeScreen extends React.Component {
   
   static navigationOptions = {
@@ -70,6 +72,10 @@ class HomeScreen extends React.Component {
             onPress={()=>navigate('wechat')}
             title="wechat分享"
           />
+          <Button
+            onPress = {()=>navigate('cam')}
+            title = '相机相册'
+          />
       </View>
     );
   }
@@ -98,7 +104,8 @@ const SimpleApp = StackNavigator({
   DrawNav:{screen:DrawNav},
   MobxDemo:{screen:MobxDemo},
   Profile:{screen:Profile},
-  wechat:{screen:WeChatDemo}
+  wechat:{screen:WeChatDemo},
+    cam:{screen:CameraDemo},
 });
 
 AppRegistry.registerComponent('Hello', () => SimpleApp);
