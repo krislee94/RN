@@ -30,10 +30,12 @@ export default class CameraDemo extends React.Component{
     }
     //调用单图选择器与裁剪
     singlePicker=()=> {
+        this.hidePictureModal();
         ImagePicker.openPicker({
             width: 300,
             height: 400,
-            cropping: true
+            cropping: true,
+            cropperCircleOverlay:true,
         }).then(image => {
             console.log(image);
         });
@@ -46,7 +48,10 @@ export default class CameraDemo extends React.Component{
     multiPicker = ()=>{
         this.hidePictureModal();
         ImagePicker.openPicker({
-            multiple: true
+            multiple: true,
+            includeBase64:true,
+            loadingLabelText:'正在加载...',
+            enableRotationGesture:'true' //仅ios。
         }).then((images) => {
              array = [];
             // for(let i=0;i<images.length;i++){
@@ -71,6 +76,7 @@ export default class CameraDemo extends React.Component{
     }
     //拍照选择
     openCamera=()=>{
+        this.hidePictureModal();
         ImagePicker.openCamera({
             width: 300,
             height: 400,
@@ -79,8 +85,10 @@ export default class CameraDemo extends React.Component{
             console.log(image);
         });
     }
+
     //裁剪图片
     cutPicture=()=>{
+        this.hidePictureModal();
         ImagePicker.openCropper({
             path: 'my-file-path.jpg',
             width: 300,
@@ -90,7 +98,6 @@ export default class CameraDemo extends React.Component{
         });
     }
 
-
     render(){
         return(
             <View>
@@ -99,7 +106,7 @@ export default class CameraDemo extends React.Component{
                     actionvisible = {this.state.actionvisible}
                     hideModal = {()=>{this.setState({actionvisible:false})}}
                     functiontext1 = {this.openCamera.bind(this)}
-                    functiontext2 = {this.multiPicker.bind(this)}
+                    functiontext2 = {this.singlePicker.bind(this)}
                     closeAction = {()=>{this.setState({actionvisible:false})}}
 
                 />
