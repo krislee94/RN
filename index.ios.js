@@ -15,6 +15,7 @@ import MobxDemo from './Component/MobxDemo';
 import Profile from './Component/Profile';
 import WeChatDemo from './Component/WeChatDemo';
 import CameraDemo from './Component/CameraDemo';
+import ModalActivity from './Component/ModalActivity';
 
 class HomeScreen extends React.Component {
   
@@ -76,6 +77,10 @@ class HomeScreen extends React.Component {
             onPress = {()=>navigate('cam')}
             title = '相机相册'
           />
+          <Button title="跳到Modal"
+                  onPress={()=>navigate('ModalActivity')}
+                  />
+
       </View>
     );
   }
@@ -106,6 +111,7 @@ const SimpleApp = StackNavigator({
   Profile:{screen:Profile},
   wechat:{screen:WeChatDemo},
     cam:{screen:CameraDemo},
+    ModalActivity:{screen:ModalActivity}
 });
 
 AppRegistry.registerComponent('Hello', () => SimpleApp);

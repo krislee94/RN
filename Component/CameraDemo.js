@@ -16,7 +16,7 @@ import {
 import {StackNavigator,TabNavigator,DrawerNavigator} from 'react-navigation';
 import ActionModal from './utils/ActionModal';
 import ImagePicker from 'react-native-image-crop-picker';
-
+import ModalActivity from './ModalActivity';
 var array = [];
 
 export default class CameraDemo extends React.Component{
@@ -25,8 +25,14 @@ export default class CameraDemo extends React.Component{
         this.state={
             actionvisible:false,
             image:'',
+            modalVisible:false,
 
         }
+    }
+    componentWillMount(){
+        this.setState({
+
+        })
     }
     //调用单图选择器与裁剪
     singlePicker=()=> {
@@ -99,9 +105,11 @@ export default class CameraDemo extends React.Component{
     }
 
     render(){
+        console.log("ModalVisible  "+this.state.modalVisible);
         return(
             <View>
                 <Text style= {{fontSize:22,color:'blue',}}>用于测试相机相册。组件为：react-native-image-crop-picker </Text>
+                <ModalActivity visible = {this.state.modalVisible}/>
                 <ActionModal
                     actionvisible = {this.state.actionvisible}
                     hideModal = {()=>{this.setState({actionvisible:false})}}
@@ -116,6 +124,9 @@ export default class CameraDemo extends React.Component{
 
                 </TouchableOpacity>
                     <View style = {{height:50}}/>
+                <TouchableOpacity onPress = {()=>this.setState({modalVisible:true})}>
+                <Text>点击哈哈哈哈哈哈哈哈</Text>
+                </TouchableOpacity>
                 {/*<View>*/}
                     {/*{array}*/}
                 {/*</View>*/}
